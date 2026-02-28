@@ -28,7 +28,6 @@ La aplicación se compone de:
 - **Base de datos:** SQLite (better-sqlite3)
 - **Cifrado:** AES-256-GCM
 - **Derivación de clave:** scrypt
-- **Autenticación:** Sistema de sesión con auto-bloqueo por inactividad
 
 ---
 
@@ -50,7 +49,6 @@ Integración con la API pública de Have I Been Pwned (modelo k-anonymity) para 
 - Configuración inicial de usuario y contraseña maestra.
 - Derivación segura de clave de bóveda.
 - Sistema de sesión con token.
-- Bloqueo automático tras inactividad.
 - Sistema de emparejamiento con extensión de navegador.
 
 ---

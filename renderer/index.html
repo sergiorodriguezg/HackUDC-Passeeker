@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passeeker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+    <!-- Modal Ver Password -->
+<div id="viewModal" class="modal hidden">
+  <div class="modalContent">
+    <h3>Contraseña</h3>
+
+    <div class="pwWrap" style="margin-top:10px;">
+      <input id="viewPassword" class="input pwInput" type="password" readonly />
+      <button id="btnViewToggle" class="eyeBtn" type="button" title="Ver/ocultar">👁</button>
+    </div>
+
+    <div style="margin-top:12px; display:flex; gap:8px;">
+      <button id="btnViewCopy" class="btn btnPrimary">Copiar</button>
+      <button id="btnViewClose" class="btn">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+  <div class="app">
+
+    <!-- AUTH -->
+    <section id="auth" class="auth">
+      <div class="authCard">
+        <div class="authBrand">
+          <div class="logo">P</div>
+          <div>
+            <div class="title">Passeeker</div>
+            <div class="subtitle">Acceso requerido</div>
+          </div>
+        </div>
+
+        <div id="authMode" class="muted" style="margin-top:10px;">—</div>
+
+        <div class="form">
+          <label class="lbl">Usuario</label>
+          <input id="user" class="input" placeholder="candela" autocomplete="username" />
+
+          <label class="lbl">Contraseña maestra</label>
+          <div class="pwWrap">
+            <input
+              id="pass"
+              class="input pwInput"
+              type="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            />
+            <button id="toggleEye" class="eyeBtn" type="button" title="Ver/ocultar">👁</button>
+          </div>
+
+          <button id="btnAuthMain" class="btn btnPrimary w100" style="margin-top:10px;">—</button>
+
+          <div id="authStatus" class="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP UI -->
+    <section id="appUI" class="hidden">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">P</div>
+          <div>
+            <div class="title">Passeeker</div>
+            <div class="subtitle">Vault local seguro</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnRefresh" class="btn">Actualizar</button>
+          <button id="btnNew" class="btn btnPrimary">Nueva</button>
+          <button id="btnPair" class="btn">Conectar navegador</button>
+          <button id="btnLogout" class="btn btnDanger">Cerrar sesión</button>        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panelRow">
+          <input id="search" class="input" placeholder="Buscar por URL o usuario…" />
+          <button id="btnSearch" class="btn">Buscar</button>
+        </div>
+        <div id="status" class="status"></div>
+      </section>
+
+      <main class="content">
+        <div class="tableWrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 44%;">Web</th>
+                <th style="width: 22%;">Usuario</th>
+                <th style="width: 14%;">Seguridad</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <tr><td colspan="4" class="muted">Cargando…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <aside class="side">
+          <div class="card">
+            <div class="cardTitle">Generador</div>
+            <div class="cardBody">
+              <div class="muted">Genera una contraseña segura y la copia al portapapeles.</div>
+              <div class="sideActions">
+                <button id="btnGenRandom2" class="btn btnPrimary w100">Generar contraseña</button>
+              </div>
+              <div class="out" id="genOut">—</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardTitle">Comprobador de contraseña</div>
+            <div class="cardBody">
+                <div class="muted">Pega una contraseña y comprueba si aparece en filtraciones (HIBP).</div>
+
+                <div class="pwWrap" style="margin-top:10px;">
+                <input id="pwCheckInput" class="input pwInput" type="password" placeholder="Escribe o pega aquí…" />
+                <button id="pwCheckEye" class="eyeBtn" type="button" title="Ver/ocultar">👁</button>
+                </div>
+
+                <div style="margin-top:10px; display:flex; gap:8px;">
+                <button id="btnPwCheck" class="btn btnPrimary w100">Comprobar</button>
+                </div>
+
+                <div id="pwCheckResult" class="pwCheckBadge muted" style="margin-top:10px;">—</div>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <div id="toast" class="toast"></div>
+    </section>
+
+  </div>
+
+
+  <!-- Modal Nueva Credencial -->
+  <div id="newModal" class="modal hidden">
+    <div class="modalContent">
+      <h3>Nueva credencial</h3>
+
+      <label class="lbl">URL</label>
+      <input id="newUrl" class="input" type="text" placeholder="https://ejemplo.com/login" />
+
+      <label class="lbl">Usuario</label>
+      <input id="newUsername" class="input" type="text" placeholder="usuario@email.com" />
+
+      <label class="lbl">Contraseña</label>
+      <input id="newPassword" class="input" type="password" placeholder="Contraseña" />
+
+      <div class="pwCheckRow">
+        <button id="btnCheckNewPw" class="btn">Comprobar filtración</button>
+        <span id="newPwCheck" class="pwCheckBadge muted">—</span>
+      </div>
+
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button id="btnSaveNew" class="btn btnPrimary">Guardar</button>
+        <button id="btnCancelNew" class="btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Editar -->
+  <div id="editModal" class="modal hidden">
+    <div class="modalContent">
+      <h3>Actualizar credencial</h3>
+
+      <input id="editId" type="hidden" />
+
+      <label class="lbl">URL</label>
+      <input id="editUrl" class="input" type="text" />
+
+      <label class="lbl">Usuario</label>
+      <input id="editUsername" class="input" type="text" />
+
+      <label class="lbl">Nueva contraseña (opcional)</label>
+      <input id="editPassword" class="input" type="password" placeholder="deja vacío para no cambiar" />
+
+      <div class="pwCheckRow">
+        <button id="btnCheckEditPw" class="btn">Comprobar filtración</button>
+        <span id="editPwCheck" class="pwCheckBadge muted">—</span>
+      </div>
+
+      <div style="margin-top:12px; display:flex; gap:8px;">
+        <button id="btnEditSave" class="btn btnPrimary">Guardar</button>
+        <button id="btnEditCancel" class="btn">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+:root{
+  --bg:#0b0c10;
+  --text:#f2f4ff;
+  --muted:rgba(242,244,255,.65);
+  --line:rgba(255,255,255,.09);
+  --ok:#35d07f;
+  --bad:#ff5b6e;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 20% 0%, #1a1f3a 0%, transparent 60%),
+              radial-gradient(1000px 600px at 90% 10%, #1b3a33 0%, transparent 55%),
+              var(--bg);
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+.app{ padding:18px; max-width: 1200px; margin: 0 auto; }
+
+.hidden{ display:none !important; }
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:14px;
+  background: rgba(18,20,32,.75);
+  border:1px solid var(--line);
+  border-radius:18px;
+  backdrop-filter: blur(10px);
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.logo{
+  width:38px; height:38px; border-radius:14px;
+  background: linear-gradient(135deg, #ffffff, #b2b7ff);
+  color:#0b0c10;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900;
+}
+.title{ font-weight:900; letter-spacing:.2px; }
+.subtitle{ font-size:12px; color:var(--muted); margin-top:2px; }
+
+.actions{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+
+.panel{
+  margin-top:14px;
+  padding:14px;
+  background: rgba(18,20,32,.6);
+  border:1px solid var(--line);
+  border-radius:18px;
+}
+.panelRow{ display:flex; gap:10px; align-items:center; }
+
+.input{
+  width: 100%;
+  flex: 1;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.25);
+  color: var(--text);
+  outline: none;
+  font-size: 15px;
+}
+
+.btn{
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background: rgba(29,34,64,.45);
+  color: var(--text);
+  cursor:pointer;
+  font-weight:600;
+  font-size:13px;
+  transition:.18s ease;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,.05);
+}
+
+/* Azul principal elegante */
+.btnPrimary{
+  background: rgba(79,108,255,.15);
+  border: 1px solid rgba(79,108,255,.35);
+  color: #4f6cff;
+}
+
+.btnPrimary:hover{
+  background: rgba(79,108,255,.25);
+}
+
+/* Rojo peligro elegante */
+.btnDanger{
+  background: rgba(255,107,122,.12);
+  border: 1px solid rgba(255,107,122,.35);
+  color: #ff6b7a;
+}
+
+.btnDanger:hover{
+  background: rgba(255,107,122,.22);
+}
+.status{
+  margin-top:10px;
+  font-size:13px;
+  color: var(--muted);
+  min-height: 18px;
+}
+
+.content{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  gap:14px;
+}
+
+.tableWrap{
+  background: rgba(18,20,32,.55);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+.table{ width:100%; border-collapse: collapse; font-size: 13.5px; }
+th, td{ padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th{
+  text-align:left;
+  font-size: 12px;
+  color: rgba(242,244,255,.8);
+  background: rgba(0,0,0,.15);
+}
+.muted{ color: var(--muted); }
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:12px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.2);
+}
+.badge.ok{ color: var(--ok); }
+.badge.bad{ color: var(--bad); }
+
+.rowActions{ display:flex; gap:8px; flex-wrap:wrap; }
+
+.side{ display:flex; flex-direction:column; gap:14px; }
+.card{
+  background: rgba(21,24,42,.65);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+}
+.cardTitle{ font-weight:900; }
+.cardBody{ margin-top:10px; color: var(--muted); font-size: 13px; }
+.sideActions{ margin-top:10px; display:flex; flex-direction:column; gap:10px; }
+
+.out{
+  margin-top:12px;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(0,0,0,.2);
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+  word-break: break-all;
+}
+
+.toast{
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  background: rgba(0,0,0,.72);
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  border-radius: 14px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: .18s ease;
+  pointer-events: none;
+  max-width: 360px;
+}
+.toast.show{ opacity: 1; transform: translateY(0); }
+
+/* AUTH */
+.auth{
+  min-height: 90vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 24px;
+}
+.authCard{
+  width: 460px;
+  background: rgba(18,20,32,.75);
+  border:1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+}
+.authBrand{ display:flex; gap:12px; align-items:center; }
+.form{ margin-top: 14px; }
+.lbl{ display:block; margin-top: 10px; margin-bottom: 6px; color: rgba(242,244,255,.75); font-size: 12px; }
+
+/* 👁 */
+.pwWrap{ position:relative; }
+.pwInput{ padding-right: 44px; }
+.eyeBtn{
+  position:absolute;
+  right:6px;
+  top:50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border:none;
+  cursor:pointer;
+  font-size:16px;
+  color: rgba(242,244,255,.6);
+}
+.eyeBtn:hover{ color: rgba(242,244,255,.95); }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pwCheckRow{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+
+.pwCheckBadge{
+  font-weight:600;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+.pwCheckBadge.ok{
+  color:#b7f7c8;
+  border-color: rgba(183,247,200,0.35);
+}
+
+.pwCheckBadge.bad{
+  color:#ff9aa5;
+  border-color: rgba(255,154,165,0.35);
+}
+
+.pwCheckBadge{
+  font-weight:600;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.12);
+}
+
+.pwCheckBadge.ok{
+  color:#b7f7c8;
+  border-color: rgba(183,247,200,0.35);
+}
+
+.pwCheckBadge.bad{
+  color:#ff9aa5;
+  border-color: rgba(255,154,165,0.35);
+}
+
+
+.userCell{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.userName{
+  line-height: 1.2;
+}
+
+.userActions{
+  display:flex;
+  gap:8px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+}
+
+/* Opcional: botones un pelín más compactos en la tabla */
+.userActions .btn{
+  padding: 10px 14px;
+  border-radius: 14px;
+}

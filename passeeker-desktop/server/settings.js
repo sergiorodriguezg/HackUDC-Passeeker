@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import keytar from "keytar";
 import crypto from "crypto";
 

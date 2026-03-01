@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import { app, BrowserWindow } from "electron";
 import path from "path";
 import fs from "fs";

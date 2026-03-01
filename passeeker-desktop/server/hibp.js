@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import crypto from "crypto";
 
 function sha1Hex(text) {

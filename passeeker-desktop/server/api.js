@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import express from "express";
 import { encryptPassword, decryptPassword } from "./crypto.js";
 import { checkPwnedPassword } from "./hibp.js";

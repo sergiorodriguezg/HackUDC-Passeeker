@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 const base = window.passeeker?.apiBase || "http://127.0.0.1:8787";
 let token = null;
 let selectedAppKey = "";

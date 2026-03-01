@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 export async function generateHFPassphrase(hfToken) {
   const token = String(hfToken || "").trim();
   if (!token) throw new Error("HF token missing");

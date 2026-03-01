@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import crypto from "crypto";
 
 export async function encryptPassword(plaintext, vaultKey) {

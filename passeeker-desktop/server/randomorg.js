@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 import crypto from "crypto";
 
 async function randomOrgIntegers(n, min, max){

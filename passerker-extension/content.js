@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 (() => {
   console.log("[Passeeker] content.js cargado en:", location.href);
 

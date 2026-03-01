@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 const out = document.getElementById('out');
 const yes = document.getElementById('yes');
 const no = document.getElementById('no');

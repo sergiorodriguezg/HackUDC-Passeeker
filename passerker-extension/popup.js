@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 const out = document.getElementById("out");
 const btn = document.getElementById("connect");
 

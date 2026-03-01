@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Passeeker Quick</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./quick.css" />
+</head>
+<body>
+  <div class="quickRoot">
+
+    <div class="quickTop">
+      <div class="brand">
+        <div class="logo">P</div>
+        <div>
+          <div class="title">Quick Vault</div>
+          <div class="subtitle">Ctrl+Alt+P</div>
+        </div>
+      </div>
+
+      <div class="quickBtns">
+        <button id="btnOpenFull" class="btn">Abrir app</button>
+        <button id="btnClose" class="btn">✕</button>
+      </div>
+    </div>
+
+    <div class="quickTabs">
+      <button id="tabList" class="btn btnPrimary">Contraseñas</button>
+      <button id="tabSave" class="btn">Guardar</button>
+    </div>
+
+    <div id="quickStatus" class="status"></div>
+
+    <!-- LOGIN (si está bloqueado) -->
+    <section id="lockPane" class="card" style="display:none;">
+      <div class="cardTitle">Bloqueado</div>
+      <div class="cardBody">
+        <div class="muted">Inicia sesión para acceder a tu vault.</div>
+
+        <label class="lbl">Usuario</label>
+        <input id="lockUser" class="input" placeholder="candela" />
+
+        <label class="lbl">Contraseña</label>
+        <div class="pwWrap">
+          <input id="lockPass" class="input pwInput" type="password" placeholder="••••••••" />
+          <button id="lockEye" class="eyeBtn" type="button">👁</button>
+        </div>
+
+        <button id="btnUnlock" class="btn btnPrimary w100" style="margin-top:10px;">Desbloquear</button>
+      </div>
+    </section>
+
+    <!-- LISTA -->
+    <section id="listPane" class="card">
+      <div class="cardTitle">Contraseñas por aplicación</div>
+      <div class="cardBody">
+
+        <div class="quickRow">
+          <input id="q" class="input" placeholder="Buscar (dominio/usuario)..." />
+          <button id="btnGo" class="btn">Buscar</button>
+        </div>
+
+        <div class="split">
+          <div class="apps">
+            <div class="appsTitle">Aplicaciones</div>
+            <div id="apps" class="appsList"></div>
+          </div>
+
+          <div class="creds">
+            <div class="appsTitle" id="credsTitle">Credenciales</div>
+            <div id="list" class="quickList"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GUARDAR -->
+    <section id="savePane" class="card" style="display:none;">
+      <div class="cardTitle">Guardar nueva</div>
+      <div class="cardBody">
+        <label class="lbl">URL</label>
+        <input id="sUrl" class="input" placeholder="https://ejemplo.com/login" />
+
+        <label class="lbl">Usuario</label>
+        <input id="sUser" class="input" placeholder="usuario@ejemplo.com" />
+
+        <label class="lbl">Contraseña</label>
+        <div class="pwWrap">
+          <input id="sPass" class="input pwInput" type="password" placeholder="••••••••" />
+          <button id="sEye" class="eyeBtn" type="button">👁</button>
+        </div>
+
+        <div class="quickRow" style="margin-top:10px;">
+          <button id="btnGen" class="btn">Random.org</button>
+          <button id="btnSave" class="btn btnPrimary">Guardar</button>
+        </div>
+
+        <div class="out" id="genOutQuick">—</div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="./quick.js"></script>
+</body>
+</html>
